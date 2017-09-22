@@ -8,4 +8,4 @@ Analyzes text data related to Quora's question pairs, a competition from Kaggle.
 Collects streaming tweets with the Twitter api, converts json data to a dataframe, connects python to postgres, and loads the tweets and metadata into postgres.
 
 **tweet_analysis_2**   
-Combines the tweets from two different days and analyzes the sentiment polarities, tests for significance with bootstrap samples, and creates a wordcloud of the bigram phrases.
+Combines the tweets from two different days and analyzes the sentiment polarities, tests for significance with bootstrap samples, creates a wordcloud of the bigrams, and visualizes word vectors with tsne.
