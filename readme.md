@@ -4,7 +4,7 @@ Provides examples of eda and machine learning (logistic regression, random fores
 
 **nlp_features**  
 Analyzes text data related to Quora's question pairs, a competition from Kaggle. Spacy is used to analyze parts of speech, sentence similarity, and textblob for sentiment analysis.  
-[view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/nlp_features.ipynb)
+[view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/quora_eda.ipynb)
 
 **tweet_analysis_1**  
 Collects streaming tweets with the Twitter api, converts json data to a dataframe, connects python to postgres, and loads the tweets and metadata into postgres.  
