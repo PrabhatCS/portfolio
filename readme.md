@@ -8,8 +8,8 @@ Analyzes text data related to Quora's question pairs, a competition from Kaggle.
 
 **twitter_data**  
 Collects streaming tweets with the Twitter api, converts json data to a dataframe, connects python to postgres, and loads the tweets and metadata into postgres.  
-[view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/tweet_analysis_1.ipynb)
+[view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/twitter_data.ipynb)
 
 **announcement_analysis**   
 Analyzes sentiment for the pixel 2 product launch during the day of announcement, tests for significance with bootstrap samples, creates a wordcloud of the bigrams, visualizes word vectors with tsne, and uses lda for topic analysis.  
-[view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/tweet_analysis_2.ipynb)
+[view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/announcement_analysis.ipynb)
