@@ -6,10 +6,10 @@ Provides examples of eda and machine learning (logistic regression, random fores
 Analyzes text data related to Quora's question pairs, a competition from Kaggle. Spacy is used to analyze parts of speech, sentence similarity, and textblob for sentiment analysis.  
 [view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/quora_eda.ipynb)
 
-**tweet_analysis_1**  
+**twitter_data**  
 Collects streaming tweets with the Twitter api, converts json data to a dataframe, connects python to postgres, and loads the tweets and metadata into postgres.  
 [view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/tweet_analysis_1.ipynb)
 
-**tweet_analysis_2**   
-Combines the tweets from two different days and analyzes the sentiment polarities, tests for significance with bootstrap samples, creates a wordcloud of the bigrams, and visualizes word vectors with tsne.  
+**announcement_analysis**   
+Analyzes sentiment for the pixel 2 product launch during the day of announcement, tests for significance with bootstrap samples, creates a wordcloud of the bigrams, visualizes word vectors with tsne, and uses lda for topic analysis.  
 [view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/tweet_analysis_2.ipynb)
