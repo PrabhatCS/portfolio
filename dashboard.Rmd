@@ -1,0 +1,98 @@
+---
+title: "Grocery Stores"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+
+# data manipulation
+library(dplyr)
+library(data.table)
+library(tibble)
+
+# graphs
+library(ggplot2)
+library(ggthemes)
+library(scales)
+
+# mapping/vis
+library(ggmap)
+library(leaflet)
+library(rgdal)
+library(treemap)
+```
+
+```{r}
+stores <- fread('./data/stores.csv')
+items <- fread('./data/items.csv')
+geocodes <- fread('./processed/geocodes.csv')
+stores$city_state <- paste(stores$city, substr(stores$state,1,12), sep=', ')
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Stores map
+
+```{r, messages = FALSE}
+# reading the shapefile
+ecua_shp <- readOGR(dsn='./data/shapefiles/provincias.shp', verbose=FALSE)
+#geocodes <- geocode(paste(stores$city, 'Ecuador', sep=', '))
+
+store_counts <- group_by(stores, city, state) %>%
+  summarize(count=n()) %>%
+  arrange(desc(count))
+
+store_counts <- merge.data.frame(store_counts, geocodes, by = 0)
+#stores <- left_join(stores, store_counts, by= "city_state")
+#geocodes$count <- store_counts$count
+
+# color assignment function
+topo <- colorFactor(topo.colors(26), ecua_shp@data$Id)
+
+# leaflet map creation
+leaflet(ecua_shp) %>%
+  addTiles() %>%
+  setView(-78.46784, -1.7556532, zoom=7) %>%
+  addPolygons(color = "#444444", weight = 1, smoothFactor = 0.5,
+    opacity = 1, fillOpacity = 0.1,
+    fillColor = ~topo(ecua_shp@data$Id)) %>%
+  addCircles(~store_counts$lon, ~store_counts$lat, radius= ~store_counts$count*2*10^3, weight=3, opacity=0.5)
+
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Stores by city
+
+```{r}
+
+stores$city_state <- paste(substr(stores$city, 0, 12), substr(stores$state, 0, 13), sep = ', ')
+
+group_by(stores, state, city) %>% 
+  ggplot(aes(x = city_state)) +
+    geom_bar(aes(fill=state)) + 
+    theme_minimal() +
+    scale_fill_hue(c = 60) + 
+    theme(axis.text.x = element_text(angle=-90, hjust=0)) +
+    guides(fill=FALSE)
+    
+```
+
+
+### Items
+
+```{r}
+group_by(items, family) %>% 
+  summarize(count=n()) %>% 
+  treemap(index = 'family', vSize = 'count', type = 'index')
+```
+
+
+
