@@ -3,7 +3,7 @@ Analyzes sentiment for the pixel 2 product launch during the day of announcement
 [view](https://nbviewer.jupyter.org/github/eddiepyang/portfolio/blob/master/announcement_analysis.ipynb)
 
 **dashboard.Rmd**
-Creates a dashboard with data from a large chain in Ecuador. Leaflet's R interface was used for the map base, with a layered shape file for the state borders. ggplot2 for the barchart, and treemap was used for the treemap of the types of items being sold. 
+Creates a dashboard with data from a large chain in Ecuador. Leaflet's R interface was used for the map base, with a layered shape file for the state borders. ggplot2 for the barchart, and treemap was used for the treemap of the types of items being sold.  
 [view](http://rpubs.com/themissingsock/330822)
 
 **eda_ml**  
